@@ -84,10 +84,12 @@ struct  _RANIndicationResponse
   ProtobufCMessage base;
   size_t n_param_map;
   RANParamMapEntry **param_map;
+  size_t n_ue_info;
+  UeInfoM **ue_info;
 };
 #define RAN_INDICATION_RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ran_indication_response__descriptor) \
-    , 0,NULL }
+    , 0,NULL, 0,NULL }
 
 
 struct  _RANControlRequest
@@ -133,25 +135,26 @@ struct  _UeInfoM
    */
   int32_t rnti;
   /*
-   * specific ue's measurements (these will come from the gnb)
-   */
-  protobuf_c_boolean has_meas_type_1;
-  float meas_type_1;
-  protobuf_c_boolean has_meas_type_2;
-  float meas_type_2;
-  protobuf_c_boolean has_meas_type_3;
-  float meas_type_3;
-  /*
    * specific ue's propoerties (these will be set by the xapp and sent to gnb)
+   * optional bool prop_1 = 5;
+   * optional float prop_2 = 6;
    */
-  protobuf_c_boolean has_prop_1;
-  protobuf_c_boolean prop_1;
-  protobuf_c_boolean has_prop_2;
-  float prop_2;
+  protobuf_c_boolean has_ue_rsrp;
+  float ue_rsrp;
+  protobuf_c_boolean has_ue_ber_up;
+  float ue_ber_up;
+  protobuf_c_boolean has_ue_ber_down;
+  float ue_ber_down;
+  protobuf_c_boolean has_ue_mcs_up;
+  float ue_mcs_up;
+  protobuf_c_boolean has_ue_mcs_down;
+  float ue_mcs_down;
+  protobuf_c_boolean has_cell_load;
+  float cell_load;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
-    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _UeListM
@@ -160,10 +163,12 @@ struct  _UeListM
   int32_t connected_ues;
   size_t n_ue_info;
   UeInfoM **ue_info;
+  int32_t total_prbs;
+  int32_t allocated_prbs;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0,NULL }
+    , 0, 0,NULL, 0, 0 }
 
 
 /* RANParamMapEntry methods */
