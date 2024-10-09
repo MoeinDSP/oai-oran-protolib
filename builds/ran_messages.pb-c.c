@@ -437,7 +437,7 @@ const ProtobufCMessageDescriptor ran_indication_request__descriptor =
   (ProtobufCMessageInit) ran_indication_request__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor ran_indication_response__field_descriptors[2] =
+static const ProtobufCFieldDescriptor ran_indication_response__field_descriptors[1] =
 {
   {
     "param_map",
@@ -451,27 +451,14 @@ static const ProtobufCFieldDescriptor ran_indication_response__field_descriptors
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
-  {
-    "ue_info",
-    2,
-    PROTOBUF_C_LABEL_REPEATED,
-    PROTOBUF_C_TYPE_MESSAGE,
-    offsetof(RANIndicationResponse, n_ue_info),
-    offsetof(RANIndicationResponse, ue_info),
-    &ue_info_m__descriptor,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
 };
 static const unsigned ran_indication_response__field_indices_by_name[] = {
   0,   /* field[0] = param_map */
-  1,   /* field[1] = ue_info */
 };
 static const ProtobufCIntRange ran_indication_response__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 0, 1 }
 };
 const ProtobufCMessageDescriptor ran_indication_response__descriptor =
 {
@@ -481,7 +468,7 @@ const ProtobufCMessageDescriptor ran_indication_response__descriptor =
   "RANIndicationResponse",
   "",
   sizeof(RANIndicationResponse),
-  2,
+  1,
   ran_indication_response__field_descriptors,
   ran_indication_response__field_indices_by_name,
   1,  ran_indication_response__number_ranges,
@@ -657,7 +644,7 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[7] =
     "ue_mcs_up",
     5,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_FLOAT,
+    PROTOBUF_C_TYPE_INT32,
     offsetof(UeInfoM, has_ue_mcs_up),
     offsetof(UeInfoM, ue_mcs_up),
     NULL,
@@ -669,7 +656,7 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[7] =
     "ue_mcs_down",
     6,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_FLOAT,
+    PROTOBUF_C_TYPE_INT32,
     offsetof(UeInfoM, has_ue_mcs_down),
     offsetof(UeInfoM, ue_mcs_down),
     NULL,
@@ -681,7 +668,7 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[7] =
     "cell_load",
     7,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_FLOAT,
+    PROTOBUF_C_TYPE_INT32,
     offsetof(UeInfoM, has_cell_load),
     offsetof(UeInfoM, cell_load),
     NULL,
@@ -719,7 +706,7 @@ const ProtobufCMessageDescriptor ue_info_m__descriptor =
   (ProtobufCMessageInit) ue_info_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[4] =
+static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[2] =
 {
   {
     "connected_ues",
@@ -745,41 +732,15 @@ static const ProtobufCFieldDescriptor ue_list_m__field_descriptors[4] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
-  {
-    "total_prbs",
-    3,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_INT32,
-    0,   /* quantifier_offset */
-    offsetof(UeListM, total_prbs),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "allocated_prbs",
-    4,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_INT32,
-    0,   /* quantifier_offset */
-    offsetof(UeListM, allocated_prbs),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
 };
 static const unsigned ue_list_m__field_indices_by_name[] = {
-  3,   /* field[3] = allocated_prbs */
   0,   /* field[0] = connected_ues */
-  2,   /* field[2] = total_prbs */
   1,   /* field[1] = ue_info */
 };
 static const ProtobufCIntRange ue_list_m__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 4 }
+  { 0, 2 }
 };
 const ProtobufCMessageDescriptor ue_list_m__descriptor =
 {
@@ -789,7 +750,7 @@ const ProtobufCMessageDescriptor ue_list_m__descriptor =
   "UeListM",
   "",
   sizeof(UeListM),
-  4,
+  2,
   ue_list_m__field_descriptors,
   ue_list_m__field_indices_by_name,
   1,  ue_list_m__number_ranges,

@@ -82,14 +82,15 @@ struct  _RANIndicationRequest
 struct  _RANIndicationResponse
 {
   ProtobufCMessage base;
+  /*
+   * repeated ue_info_m ue_info = 2;
+   */
   size_t n_param_map;
   RANParamMapEntry **param_map;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
 };
 #define RAN_INDICATION_RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ran_indication_response__descriptor) \
-    , 0,NULL, 0,NULL }
+    , 0,NULL }
 
 
 struct  _RANControlRequest
@@ -146,11 +147,11 @@ struct  _UeInfoM
   protobuf_c_boolean has_ue_ber_down;
   float ue_ber_down;
   protobuf_c_boolean has_ue_mcs_up;
-  float ue_mcs_up;
+  int32_t ue_mcs_up;
   protobuf_c_boolean has_ue_mcs_down;
-  float ue_mcs_down;
+  int32_t ue_mcs_down;
   protobuf_c_boolean has_cell_load;
-  float cell_load;
+  int32_t cell_load;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
@@ -163,12 +164,10 @@ struct  _UeListM
   int32_t connected_ues;
   size_t n_ue_info;
   UeInfoM **ue_info;
-  int32_t total_prbs;
-  int32_t allocated_prbs;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0,NULL, 0, 0 }
+    , 0, 0,NULL }
 
 
 /* RANParamMapEntry methods */

@@ -28,7 +28,7 @@ message RAN_indication_request{
 
 message RAN_indication_response{
     repeated RAN_param_map_entry param_map = 1;
-    repeated ue_info_m ue_info = 2;
+    // repeated ue_info_m ue_info = 2;
 }
 
 message RAN_control_request{
@@ -62,14 +62,12 @@ message ue_info_m{
     optional float ue_rsrp=2;
     optional float ue_ber_up=3;
     optional float ue_ber_down=4;
-    optional float ue_mcs_up=5;
-    optional float ue_mcs_down=6;
-    optional float cell_load=7;
+    optional int32 ue_mcs_up=5;
+    optional int32 ue_mcs_down=6;
+    optional int32 cell_load=7;
 }
 
 message ue_list_m{
   required int32 connected_ues = 1;
   repeated ue_info_m ue_info = 2;
-  required int32 total_prbs = 3;
-  required int32 allocated_prbs = 4;
 }
