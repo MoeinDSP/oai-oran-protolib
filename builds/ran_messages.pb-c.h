@@ -82,9 +82,6 @@ struct  _RANIndicationRequest
 struct  _RANIndicationResponse
 {
   ProtobufCMessage base;
-  /*
-   * repeated ue_info_m ue_info = 2;
-   */
   size_t n_param_map;
   RANParamMapEntry **param_map;
 };
@@ -147,11 +144,11 @@ struct  _UeInfoM
   protobuf_c_boolean has_ue_ber_down;
   float ue_ber_down;
   protobuf_c_boolean has_ue_mcs_up;
-  int32_t ue_mcs_up;
+  float ue_mcs_up;
   protobuf_c_boolean has_ue_mcs_down;
-  int32_t ue_mcs_down;
+  float ue_mcs_down;
   protobuf_c_boolean has_cell_load;
-  int32_t cell_load;
+  float cell_load;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
